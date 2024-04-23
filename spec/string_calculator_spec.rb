@@ -21,5 +21,14 @@ RSpec.describe 'StringCalculator' do
     it 'return invalid input for an its numbric string which is saparated by comma' do
       expect {StringCalculator.add("1,\n2")}.to raise_error(ArgumentError)
     end
+
+    it "change delimiter at the beginning of the string" do
+      expect(StringCalculator.add("//;\n1;2")).to eq(3)
+      expect(StringCalculator.add("//#\n1\n2,3")).to eq(6)
+    end
+
+    it "return invalid input with delimiter" do
+      expect { StringCalculator.add("//;\n1;\n1") }.to raise_error(ArgumentError)
+    end
   end
 end
