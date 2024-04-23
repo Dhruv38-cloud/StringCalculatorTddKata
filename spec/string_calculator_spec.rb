@@ -9,5 +9,9 @@ RSpec.describe 'StringCalculator' do
     it 'return number for an its numbric string' do
       expect(StringCalculator.add("6")).to eq(6)
     end
+
+    it 'return calculated number for an its numbric string which is saparated by comma' do
+      expect(StringCalculator.add("1,2,3")).to eq(6)
+    end
   end
 end
