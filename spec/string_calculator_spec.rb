@@ -30,5 +30,13 @@ RSpec.describe 'StringCalculator' do
     it "return invalid input with delimiter" do
       expect { StringCalculator.add("//;\n1;\n1") }.to raise_error(ArgumentError)
     end
+
+    it "throws an exception for a single negative number" do
+      expect { StringCalculator.add('-1') }.to raise_error(ArgumentError, "Negative numbers not allowed: -1")
+    end
+
+    it "throws an exception for multiple negative numbers" do
+      expect { StringCalculator.add('-1,-2,-3') }.to raise_error(ArgumentError, "Negative numbers not allowed: -1, -2, -3")
+    end
   end
 end
