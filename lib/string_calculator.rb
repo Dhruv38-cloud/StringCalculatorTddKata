@@ -1,5 +1,7 @@
 class StringCalculator
   def self.add(num_string)
+    raise ArgumentError, "Input should be string" unless num_string.is_a?(String)
+
     return 0 if num_string.empty?
     
     return num_string.to_i if is_a_number?(num_string) && !num_string.to_i.negative?
